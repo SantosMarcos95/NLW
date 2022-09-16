@@ -1,0 +1,155 @@
+* { /* tirando o padrao do navegador */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style:  none; /* tirando os pontos das listas */
+}
+
+body {
+    background-image: url(./assets/bg.jpg);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #121214;    
+}
+body *{
+    font-family: 'inter', sans-serif; /* colocando font da letra, do link que esta no head, np html */
+    line-height: 160%; /* altura da linha */
+}
+
+header {
+    padding-top: 32px;
+    height: calc(120px + 32px);
+}
+
+header div {
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+
+    display: flex;
+    padding: 4px;
+
+    transition: transform .3s; /* quando suado o transforme, ira para ecala 1 em 3 segundos */
+}
+
+header div:hover{ /* quando passar o mouse em cima */
+    transform: scale(1.1); /* fazer movimento de "pulse" na foto */
+}
+
+header img{
+    width: 100%;
+    border-radius: 50%;    
+}
+
+/* para visualização das box
+main * { 
+    border: 1px solid red;
+}
+*/
+main {
+    max-width: 500px; /* == largura maxima*/
+    width: 90%; /* caso a tela seja menor que 500 px, ele ira deixar do tamanho de 90% da tela */
+    margin: 32px auto;
+    display: grid; /* display grid com o gap, da o espaçamento das box */
+    gap: 24px;
+    
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+section div{
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+
+   
+}
+
+section h2{
+    font-weight: 900;  /* peso da font */
+    font-size: 24px; /* tamnho da letra */
+    letter-spacing: -0.47px; /* espaço entre as letras */
+}
+section p {  
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+section ul{
+    display: flex;
+    flex-wrap: wrap; /* quando chegar no limete da caixa, joga os proximos elementos para baixo*/
+    gap: 16px; /* so funciona com o display flex, pois so da espaçamente nas laterais */
+    margin-top: 24px; /* espado do topo da ul */
+}
+section ul li {
+transition: transform .3s;
+}
+
+section ul li:hover{ /* quando passar o mouse em cima */
+    transform: scale(1.1);
+}
+
+
+.games-list img{
+border-radius: 8px; /* arredondado as bordas das imagens */
+}
+.channel-list img {
+    border-radius: 50%;
+    width: 70px;
+    border: 1px solid #443e54;
+}
+
+
+/* animation */
+
+header div {
+    animation: fromTop .7s 2s backwards;
+   /* animation-delay: 4s ; */
+}
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0); /* translateT é o movimento da pagina de cima pra baixo */
+    }
+}
+
+main section {
+    animation: fromBottom .7s backwards; 
+}
+
+main section:nth-child(1){
+    -o-animation-delay: 0;
+}
+
+main section:nth-child(2){
+    animation-delay: .4s;
+}
+
+main section:nth-child(3){
+    animation-delay: .8s;
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-30px); /* translateT é o movimento da pagina de esquerda pra direita */
+    }
+}
